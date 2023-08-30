@@ -1,0 +1,42 @@
+﻿@model IEnumerable<HuniMVC.Models.MessageComment>
+
+@{
+
+    var messageId = ViewBag.MessageId;
+}
+
+<div class="panel panel-default" id="divComment">
+    <table class="table">
+        <thead>
+            <tr>
+                <th class="text-center">이름</th>
+                <th class="text-center">내용</th>
+                <th class="text-center">날짜</th>
+                <th class="text-center">삭제</th>
+            </tr>
+        </thead>
+        <tbody class="tbody">
+            @if (Model == null || Model.Count() <= 0)
+            {
+                <tr>
+                    <td class="text-center" colspan="4">댓글이 없습니다.</td>
+                </tr>
+            }
+            else
+            {
+                foreach (var comment in Model)
+                {
+                    <tr>
+                        <td class="text-center">@comment.Message.Body</td>
+                        <td class="text-left">@Html.Raw(comment.Body)</td>
+                        <td class="text-center">@comment.CreateDate</td>
+                        <td class="text-center">
+                            @if (comment.Message.Id.Equals(User.Identity.Name) )
+                            { <i class="glyphicon glyphicon-remove" onclick="CommentDelete('@messageId', '@comment.Id');" style="cursor: pointer;"></i> }
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>

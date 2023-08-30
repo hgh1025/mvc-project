@@ -1,0 +1,152 @@
+﻿@using HuniMVC.Models
+@using HuniMVC.Controllers
+
+@model HuniMVC.ViewModel.MovieDetailsViewModel
+<style>
+    table {
+    }
+</style>
+@{
+    ViewBag.Title = "Details";
+    //var messageId = ViewBag.MessageId;
+    //var coment = ViewBag.Message as HuniMVC.Models.Message;
+    var messageId = ViewBag.MessageId;
+    var movieId = ViewBag.MovieId;
+    }
+    <h1>Details</h1>
+
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Rating)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Rating)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ReleaseDate)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ReleaseDate)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+           @Html.DisplayFor(model => model.Price)
+        </dd>
+    </dl>
+</div>
+
+
+<div id="divComment">
+    @* 새로고침을 하면 사라져? *@
+    @* @await Html.PartialAsync("_CommentList", Model.Messages)  *@
+    @* @Html.Partial("_CommentList", Model.Messages) *@
+</div>
+
+
+<div class="table-responsive">
+    <div class="panel panel-default">
+        <table class="table">
+            <tr>
+                <th class="text-center">
+                    @*  @userName *@
+                </th>
+                <td class="text-center">
+                    @Html.TextArea("_CommentList", new { @class = "form-control", placeholder = "간단한 댓글을 남기세요.", rows = "2", id = "txtComment" })
+                </td>
+                <th class="text-center">
+                    <button type="button" id="btnCommentAdd" name="btnCommentAdd" class="btn btn-primary">등록</button>
+                </th>
+            </tr>
+        </table>
+    </div>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+<script type="text/javascript">
+    function CommentInsert() {
+        var url = '@Href("~/Comment/CommentAdd")';
+        
+        var parameters = new Object();
+        parameters["messageId"] = '@messageId';
+        parameters["comment"] = $("#txtComment").val();
+        parameters["movieId"] = @Model?.Id;
+
+        
+
+        $.post(url, parameters)
+            .done(function (data) {
+                CommentListLoad();
+                alert("저장됨");
+            })
+            .fail(function (data) {
+                alert("실패 [" + data +"]");
+            });
+    }
+
+   
+        $("#btnCommentAdd").click(function () {
+            CommentInsert();
+        });
+
+    function CommentDelete(messageId, commentId) {
+        if (confirm("삭제 하시겠습니까?")) {
+            var url = '@Href("~/Comment/CommentDelete")';
+            var parameters = new Object();
+            parameters["messageId"] = messageId;
+            parameters["commentId"] = commentId;
+
+            $.post(url, parameters)
+                .done(function (data) {
+                    //alert("삭제 되었습니다.");
+                    CommentListLoad();
+                })
+                .fail(function (data) {
+                    alert("실패 하였습니다. [" + data + "]");
+                });
+        }
+
+        return false;
+    }
+
+
+    function CommentListLoad() {
+        var messageId = '@messageId'; // Razor 변수를 JavaScript 변수에 할당
+        //$("#divComment").load('@Url.RouteUrl("_CommentList", "Comment")?messageId=' + messageId);
+        $("#divComment").load('@Url.Action("_CommentList", "Comment")?messageId=' + messageId); // action(functions, controllers)
+    }
+
+
+    $(document).ready(function () {
+        CommentListLoad(); // 페이지가 로드될 때 댓글 목록을 불러옵니다.
+
+    });
+
+
+
+
+    
+
+
+</script>

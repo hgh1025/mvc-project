@@ -1,0 +1,15 @@
+﻿@{
+    ViewData["Title"] = "Sign Out";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>Are you sure you want to sign out and delete your account?</p>
+
+<form asp-action="SignOut" asp-controller="Sign" method="post">
+    <div class="form-group">
+        <label for="Id">User ID:</label>
+        <input type="text" id="Id" name="Id" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-danger">Sign Out and Delete Account</button>
+</form>
