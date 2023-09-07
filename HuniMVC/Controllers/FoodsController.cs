@@ -11,12 +11,11 @@ namespace HuniMVC.Controllers
 {
     public class FoodsController : Controller
     {
-        private readonly HuniMVCContext _context;
         private readonly ILogger<FoodsController> _logger;
         private readonly IFoodsRepository _foodsRepository;
-        public FoodsController(HuniMVCContext context, ILogger<FoodsController> logger, IFoodsRepository foodsRepository)
+        public FoodsController(ILogger<FoodsController> logger, IFoodsRepository foodsRepository)
         {
-            _context = context;
+    
             _logger = logger;
             _foodsRepository = foodsRepository;
         }
@@ -30,24 +29,27 @@ namespace HuniMVC.Controllers
         public IActionResult Snack(string Id)
         {
             _logger.LogInformation(@"snackId={0}", Id);
-            var model = _context.Foods.Where(x => x.FoodType == "Snack").ToList();
-            SnackViewModel viewModel = new SnackViewModel();
-            viewModel.Foods = new List<Food>(model);
-            return View(viewModel);
+            //var model = _context.Foods.Where(x => x.FoodType == "Snack").ToList();
+            //SnackViewModel viewModel = new SnackViewModel();
+            //viewModel.Foods = new List<Food>(model);
+            var model = _foodsRepository.GetSnack();
+            return View(model);
         }
         [HttpGet]
-        public IActionResult Drink(string name)
+        public IActionResult Drink(string Id)
         {
-            _foodsRepository.GetSnack(name);
-            ViewBag.Name = name;
-            return View();
+            _logger.LogInformation(@"drinkId={0}", Id);
+            var model = _foodsRepository.GetDrink();
+            return View(model);
         }
 
         [HttpGet]
-        public IActionResult Popcorn(string name)
+        public IActionResult Popcorn(string Id)
         {
-            ViewBag.Name = name;
-            return View();
+
+            _logger.LogInformation(@"popcornId={0}", Id);
+            var model = _foodsRepository.GetPopcorn();
+            return View(model);
         }
 
    

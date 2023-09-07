@@ -14,6 +14,13 @@ D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\DnsClien
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Humanizer.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\MessagePack.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\MessagePack.Annotations.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Mvc.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Razor.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Helpers.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -65,6 +72,7 @@ D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsof
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Templating.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGeneration.Utils.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.VisualStudio.Web.CodeGenerators.Mvc.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\MongoDB.Bson.dll
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\MongoDB.Driver.dll
@@ -282,11 +290,3 @@ D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\refint\H
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.pdb
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.genruntimeconfig.cache
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\ref\HuniMVC.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Mvc.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Razor.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.Helpers.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.Deployment.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.Razor.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\System.Web.WebPages.dll
-D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\bin\Debug\net6.0\Microsoft.Web.Infrastructure.dll

@@ -10,7 +10,7 @@ using HuniMVC.Api.Models;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-
+using HuniMVC.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<HuniMVCContext>(options =>
@@ -18,6 +18,7 @@ builder.Services.AddDbContext<HuniMVCContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<IOrderRepository, OrderRepositoryIM>(); // 의존성 등록
+builder.Services.AddScoped<IFoodsRepository, FoodsRepository>(); // 의존성 등록
 builder.Services.AddScoped<HuniMVC.ActionResults.StandardJsonResult>();// 의존성 등록
 builder.Services.AddScoped<HuniMVC.Views.Sign.LogInModel>();// 의존성 등록
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()

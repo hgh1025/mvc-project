@@ -11,7 +11,6 @@ namespace HuniMVC.Models
         public string FoodDescription { get; set;}
         public double Price { get; set;}
 
-        public List<Food> Foods { get; set; }
 
      
 

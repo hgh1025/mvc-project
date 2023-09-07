@@ -1,5 +1,6 @@
 ﻿using HuniMVC.Data;
 using HuniMVC.Models;
+using HuniMVC.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 
 // 관리자 페이지
@@ -12,9 +13,7 @@ namespace HuniMVC.Repository
         {
             _context = context;
         }
-        public IEnumerable<Food>? Food => throw new NotImplementedException();
-
-     
+        public Food? Foods => throw new NotImplementedException();
 
         public void FoodId(Guid foodId)
         {
@@ -22,19 +21,19 @@ namespace HuniMVC.Repository
             throw new NotImplementedException();
         }
 
-        public void GetSnack(string name)
+        public IEnumerable<Food> GetSnack()
         {
-            var model = _context.Foods.Where(x => x.FoodType == "Snack").ToList();
+            return _context.Foods.Where(x => x.FoodType == "Snack").ToList();
         }
 
-        public void GetDrink(Food food)
+        public IEnumerable<Food> GetDrink()
         {
-            var model = _context.Foods.Where(x => x.FoodType == "Drink").ToList();
+             return _context.Foods.Where(x => x.FoodType == "Drink").ToList();
         }
 
-        public void GetPopcorn(Food food)
+        public IEnumerable<Food> GetPopcorn()
         {
-            var model = _context.Foods.Where(x => x.FoodType == "Popcorn").ToList();
+            return _context.Foods.Where(x => x.FoodType == "Popcorn").ToList();
         }
     }
 }

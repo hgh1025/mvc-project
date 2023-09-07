@@ -1,6 +1,6 @@
 ﻿@using HuniMVC.Controllers
 
-@model HuniMVC.ViewModel.SnackViewModel
+@model List<HuniMVC.Models.Food>
 
 @{
     
@@ -11,13 +11,13 @@
         <tr>
            
             <th>
-                @Html.DisplayNameFor(model => model.Foods[0].FoodName)
+                @Html.DisplayNameFor(model => model[0].FoodName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Foods[0].FoodDescription)
+                @Html.DisplayNameFor(model => model[0].FoodDescription)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Foods[0].Price)
+                @Html.DisplayNameFor(model => model[0].Price)
             </th>
             <th></th>
         </tr>
@@ -26,7 +26,7 @@
     <tbody>
        
     
-            @foreach (var item in Model.Foods)
+            @foreach (var item in Model)
             {
 
                 <tr>
