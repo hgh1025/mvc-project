@@ -1,0 +1,113 @@
+is_global = true
+build_property.TargetFramework = net6.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = HuniMVC
+build_property.RootNamespace = HuniMVC
+build_property.ProjectDir = D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\
+build_property.RazorLangVersion = 6.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Chart/ChartAdd.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRcQ2hhcnRBZGQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Chart/ChartEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRcQ2hhcnRFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Chart/ChartList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2hhcnRcQ2hhcnRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Comment/_CommentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ29tbWVudFxfQ29tbWVudExpc3QuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Foods/Drink.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcRHJpbmsuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Foods/Popcorn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcUG9wY29ybi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Foods/Snack.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRm9vZHNcU25hY2suY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Home/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/MovieCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/MovieDelete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/MovieDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/MovieEdit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXE1vdmllRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Movies/_CommentList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTW92aWVzXF9Db21tZW50TGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Shared/Comment.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXENvbW1lbnQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Sign/LogIn.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblxMb2dJbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Sign/SignOut.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblxTaWduT3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Sign/Signup.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2lnblxTaWdudXAuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/개인프로젝트/MVCProject/trunk/HuniMVC/HuniMVC/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-xrh26tvzph
