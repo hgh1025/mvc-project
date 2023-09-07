@@ -1,0 +1,48 @@
+﻿@model HuniMVC.Models.Order
+<body>
+    1. 장바구니 리스트
+
+    2.장바구니 사진, 이름, 가격
+</body>
+
+
+
+<script>
+    //장바구니 추가 함수
+    function ChartAdd() {
+
+    }
+    //장바구니 리스트 함수
+    function ChartList() {
+
+    }
+    $.post(url, parameters)
+        .done(function () {
+
+        })
+        .fail(function () {
+
+        });
+
+        //장바구니 추가, 선물하기, 구매하기
+    function fnMoveLink(mvtype, pno, pidx, cnt) {
+
+        if ("False" == "False") {
+            app.goLogin();
+        }
+        else {
+            if (model.type == '1') {
+                ChartAdd();
+            }
+            else if (mvtype == '2')      //선물하기
+            {
+                fnBuyGoods(pno, pidx, 'g', cnt);
+            }
+            else if (mvtype == '3')      //구매하기
+            {
+                fnBuyGoods(pno, pidx, 'b', cnt);
+            }
+        }
+
+    }
+</script>

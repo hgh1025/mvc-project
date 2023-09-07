@@ -3,22 +3,26 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using HuniMVC.Models;
 using System.Xml.Linq;
-
+using Microsoft.AspNetCore.Identity;
 
 namespace HuniMVC.Controllers
 {
     public class CommentController : Controller
     {
         private readonly HuniMVCContext _context;
-        public CommentController(HuniMVCContext context)
+        private readonly UserManager<IdentityUser> _userManager;
+        public CommentController(HuniMVCContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
+
         }
-        public ActionResult _CommentList(Guid messageId)
+        public ActionResult _CommentList(Guid messageId, string movieId)
         {
+            var currentUserId2 = _userManager?.FindByIdAsync(movieId);
             var currentUserId = User.Identity?.Name ?? string.Empty; // 로그인된 유저
-            var models = _context.Messages.Where(x => x.MessageId == messageId).ToList();
+            var models = _context.Messages.Where(x => x.MessageId == messageId && currentUserId.Any()).ToList();
             ViewBag.MessageId = messageId;
+          
             return PartialView("_CommentList", models);
         }
 
@@ -41,12 +45,12 @@ namespace HuniMVC.Controllers
             return Json(models);
         }
         [HttpPost]
-        public JsonResult CommentDelete(Guid? messageId, string message)
+        public JsonResult CommentDelete(Guid? messageId, int commentId) // parameters["commentId"] 
         {
-            var comment = _context.Messages.FirstOrDefault(x => x.MessageId == messageId && x.Body == message);
-            _context.Remove(comment);
+            var comments = _context.Messages.FirstOrDefault(x => x.MessageId == messageId && x.Id == commentId);
+            _context.Remove(comments);
             _context.SaveChanges();
-            return Json(comment);
+            return Json(comments);
         }
        
     }

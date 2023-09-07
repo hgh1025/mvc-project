@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Sign Up";
+    var pwcheck = ViewBag.pwcheck;
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -20,8 +21,14 @@
         <input type="password" id="pw" name="pw" class="form-control" required />
     </div>
     <div class="form-group">
-        <label for="pw">Password Check:</label>
-        <input type="password" id="pw" name="pw" class="form-control" required />
+        <label for="pwc">Password Check:</label>
+        <input type="password" id="pwc" name="pwc" class="form-control" required />
     </div>
     <button type="submit" class="btn btn-primary">Sign Up</button>
 </form>
+@if (ViewBag.pwcheck == false)
+{
+    <script>
+        alert("비밀번호가 다릅니다.");
+    </script>
+}

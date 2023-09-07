@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HuniMVC.Migrations
 {
     [DbContext(typeof(HuniMVCContext))]
-    [Migration("20230829054448_first3")]
-    partial class first3
+    [Migration("20230901014445_update")]
+    partial class update
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,31 @@ namespace HuniMVC.Migrations
 
             modelBuilder.Entity("HuniMVC.Models.Food", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("FoodId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("FoodDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<Guid?>("FoodId1")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("FoodName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FoodType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("FoodId");
+
+                    b.HasIndex("FoodId1");
 
                     b.ToTable("Foods");
                 });
@@ -103,13 +121,26 @@ namespace HuniMVC.Migrations
                     b.ToTable("Movies");
                 });
 
+            modelBuilder.Entity("HuniMVC.Models.Order", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("OrderType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("HuniMVC.Models.User", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("UserId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                        .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -131,9 +162,16 @@ namespace HuniMVC.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("HuniMVC.Models.Food", b =>
+                {
+                    b.HasOne("HuniMVC.Models.Food", null)
+                        .WithMany("Foods")
+                        .HasForeignKey("FoodId1");
                 });
 
             modelBuilder.Entity("HuniMVC.Models.Message", b =>
@@ -145,6 +183,11 @@ namespace HuniMVC.Migrations
                         .IsRequired();
 
                     b.Navigation("Movie");
+                });
+
+            modelBuilder.Entity("HuniMVC.Models.Food", b =>
+                {
+                    b.Navigation("Foods");
                 });
 #pragma warning restore 612, 618
         }

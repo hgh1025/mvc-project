@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace HuniMVC.Migrations
 {
     [DbContext(typeof(HuniMVCContext))]
-    [Migration("20230830071520_userId_type")]
-    partial class userId_type
+    [Migration("20230831084010_add-model")]
+    partial class addmodel
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,13 +27,26 @@ namespace HuniMVC.Migrations
 
             modelBuilder.Entity("HuniMVC.Models.Food", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<Guid>("FoodId")
                         .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
+                        .HasColumnType("uniqueidentifier");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("FoodDescription")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("FoodName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FoodType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
+
+                    b.HasKey("FoodId");
 
                     b.ToTable("Foods");
                 });
@@ -101,6 +114,21 @@ namespace HuniMVC.Migrations
                     b.HasKey("MovieId");
 
                     b.ToTable("Movies");
+                });
+
+            modelBuilder.Entity("HuniMVC.Models.Order", b =>
+                {
+                    b.Property<Guid>("OrderId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("OrderType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("OrderId");
+
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("HuniMVC.Models.User", b =>

@@ -8,9 +8,8 @@ using Newtonsoft.Json.Serialization;
 using Microsoft.AspNetCore.Mvc.NewtonsoftJson;
 using HuniMVC.Api.Models;
 using Microsoft.AspNetCore.Hosting;
-
-
-
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -19,8 +18,11 @@ builder.Services.AddDbContext<HuniMVCContext>(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<IOrderRepository, OrderRepositoryIM>(); // 의존성 등록
-
-
+builder.Services.AddScoped<HuniMVC.ActionResults.StandardJsonResult>();// 의존성 등록
+builder.Services.AddScoped<HuniMVC.Views.Sign.LogInModel>();// 의존성 등록
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<HuniMVCContext>() // AddEntityFrameworkStores 사용을 위해 Microsoft.AspNetCore.Identity.EntityFrameworkCore 설치필요
+    .AddDefaultTokenProviders();
 
 builder.Services.AddControllersWithViews();
 
@@ -39,13 +41,19 @@ builder.Services.AddControllers()
 
 var app = builder.Build();
 
+//SeedData추가
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
 
     SeedData.Initialize(services);
 }
+using (var scope = app.Services.CreateScope())
+{
+    var services2 = scope.ServiceProvider; //변수를 다르게 해야함 
 
+    SnackSeedData.Initialize(services2);
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -64,6 +72,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Sign}/{action=LogIn}/{id?}");
 
 app.Run();

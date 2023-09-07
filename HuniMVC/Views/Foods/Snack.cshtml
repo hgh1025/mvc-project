@@ -1,0 +1,49 @@
+﻿@using HuniMVC.Controllers
+
+@model HuniMVC.ViewModel.SnackViewModel
+
+@{
+    
+}
+
+<table class="table">
+    <thead>
+        <tr>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.Foods[0].FoodName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foods[0].FoodDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Foods[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+       
+    
+            @foreach (var item in Model.Foods)
+            {
+
+                <tr>
+
+                   
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FoodName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FoodDescription)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+
+                </tr>
+            }
+        
+    </tbody>
+</table>

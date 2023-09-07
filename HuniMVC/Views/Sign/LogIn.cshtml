@@ -1,0 +1,101 @@
+﻿
+@model HuniMVC.Views.Sign.LogInModel
+
+@{
+    var pwconfirm = ViewBag.pwcheck;
+    var failcount = ViewBag.failcount;
+    var failcountmesaage = ViewBag.failcountmesaage;
+    var failtime = ViewBag.failtime;
+    var NotuserEmail = ViewBag.NotuserEmail;
+    var discorduser = ViewBag.discorduser;
+}
+<style>
+
+    .button-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: flex-end; /* 버튼을 아래쪽으로 정렬 */
+    }
+
+        .button-container > * {
+            margin-right: 10px;
+        }
+</style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@ViewBag.Title</title>
+    <!-- Bootstrap CSS -->
+</head>
+<body>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3">
+                <div class="card">
+                    <div class="card-header">
+                        <h2>@ViewBag.Title</h2>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" action="/Sign/LogIn">
+                            <div class="form-group">
+                            @*     <label asp-for="Input.Email"></label>
+                                <input asp-for="Input.Email"/>
+                                <span asp-validation-for="Input.Email" class="text-danger"></span> *@
+                                <label for="email">Email:</label>
+                                <input type="email" class="form-control" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="pw">Password:</label>
+                                <input type="password" class="form-control" id="pw" name="pw" required>
+                            </div>
+                            <div class="button-container">
+                                <button id="logInurl" type="submit" class="btn btn-primary">Log In</button>
+                                <input id="signupurl" type="button" class="btn btn-primary" value="Sign Up ">
+                            </div>
+                        </form>
+                 
+                        @if (pwconfirm == false)
+                        {
+                            <script>
+                                alert("비밀번호가 다릅니다.");
+                            </script>
+                        }
+                        @if (failtime == true)
+                        {
+                            <script>
+                                alert("로그인 제한시간이 안지남.");
+                            </script>
+                            //<div class="alert alert-danger mt-3">로그인 제한시간이 안지남.</div>
+                        }
+                        @if (failcount == true)
+                        {
+                            <script>
+                                alert("로그인 3회 실패로 3분동안 로그인이 제한됩니다..");
+                            </script>
+                            //<div class="alert alert-danger mt-3">로그인 3회 실패로 3분동안 로그인이 제한됩니다..</div>
+                        }
+
+                        @if (discorduser == true)
+                        {
+                            <script>
+                                alert("유저정보가 틀렸습니다." + @failcountmesaage + "번 틀림");
+                            </script>
+                            //<div class="alert alert-danger mt-3">유저정보가 틀렸습니다.</div>
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script>
+        $("#signupurl").click(function () {
+            window.location.href = "/Sign/SignUp";
+        });
+      
+    </script>
+</body>
+</html>
