@@ -14,10 +14,10 @@ namespace HuniMVC.ActionResults
 {
     public class StandardJsonResult : JsonResult
     {
-        public IList<string> ErrorMessages { get; private set; }
-        public StandardJsonResult() : base(null) // : base(null) -> sonResult가 인수를 0 개를 사용하는 생성자가 포함되어 있지않기 때문에 null 를 상속받는다.
+        public IList<string> ErrorMessages { get; private set; } // 객체 지향 설계 원칙 중 하나인 "의존성 역전 원칙(Dependency Inversion Principle)"에 따라, 구체적인 클래스보다는 인터페이스나 추상 클래스에 의존하는 것이 좋습니다. 따라서, 가능한 경우 IList<T>와 같은 인터페이스를 사용하는 것이 좋습니다.
+        public StandardJsonResult() : base(null) // : base(null) -> jsonResult가 인수를 0 개를 사용하는 생성자가 포함되어 있지않기 때문에 null 를 상속받는다.
         {
-            ErrorMessages = new List<string>();
+            ErrorMessages = new List<string>(); // 만약 sort,find 같은 메서드를 사용하고자 한다면 new List<T> 를 사용하면 된다.
         }
 
         //에러 메시지를 리스트에 추가하기 위한 메서드

@@ -11,14 +11,16 @@ namespace HuniMVC.Controllers
     {
         private readonly HuniMVCContext _context;
         private readonly UserManager<IdentityUser> _userManager;
+
         public CommentController(HuniMVCContext context, UserManager<IdentityUser> userManager)
         {
             _context = context;
-
+            _userManager = userManager;
         }
-        public ActionResult _CommentList(Guid messageId, string movieId)
+        public ActionResult _CommentList(Guid messageId)
         {
-            var currentUserId2 = _userManager?.FindByIdAsync(movieId);
+            //var currentUserId2 = _userManager?.FindByIdAsync(movieId);
+
             var currentUserId = User.Identity?.Name ?? string.Empty; // 로그인된 유저
             var models = _context.Messages.Where(x => x.MessageId == messageId && currentUserId.Any()).ToList();
             ViewBag.MessageId = messageId;

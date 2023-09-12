@@ -1,0 +1,8 @@
+﻿@addTagHelper *, HuniMVC.Helpers
+
+@model HuniMVC.Models.User
+
+<form asp-controller="YourController" asp-action="YourAction" asp-antiforgery="true">
+    <input asp-for="Name" />
+    <button type="submit">Submit</button>
+</form>

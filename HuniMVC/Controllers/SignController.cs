@@ -9,6 +9,9 @@ using System.Text;
 using System.Security.Cryptography;
 using HuniMVC.ActionResults;
 using System.Security.Policy;
+using System.Linq;
+using Microsoft.AspNetCore.Session;
+using Microsoft.AspNetCore.Http;
 
 namespace HuniMVC.Controllers
 
@@ -18,15 +21,22 @@ namespace HuniMVC.Controllers
         private readonly UserManager<IdentityUser> _userManager;
         private readonly SignInManager<IdentityUser> _signInManager;
         private readonly StandardJsonResult _standardJsonResult;
-        public SignController(SignInManager<IdentityUser> sugnInManager, UserManager<IdentityUser> userManager, StandardJsonResult standardJsonResult)
+        //private readonly ISessionStore _sessionStore;  ISessionStore를 직접 주입하려고 시도하지 않아야 합니다. 
+        private readonly IHttpContextAccessor _httpContextAccessor;
+        private readonly IServiceProvider _services;
+
+        public SignController(SignInManager<IdentityUser> sugnInManager, UserManager<IdentityUser> userManager, StandardJsonResult standardJsonResult, IHttpContextAccessor httpContextAccessor, IServiceProvider services)
         {
             _signInManager = sugnInManager;
             _userManager = userManager;
             _standardJsonResult = standardJsonResult;
+            _httpContextAccessor = httpContextAccessor;
+            _services = services;
         }
         [HttpGet]
         public IActionResult SignUp()
         {
+
             return View();
 
         }
@@ -65,6 +75,8 @@ namespace HuniMVC.Controllers
         //        _context.SaveChanges();
         //        return View(data);   
         //}
+ 
+        //signup기능 구현할때, 메모리에 유저 데이터가 저장되게끔해서 로그인된 유저인지 아닌지 확인시키도록한다.
         [HttpPost]
         public async Task<IActionResult> SignUp(string name, string email, string pw)
         {
@@ -73,7 +85,7 @@ namespace HuniMVC.Controllers
             
             if (result.Succeeded)
             {
-                await _signInManager.SignInAsync(user, isPersistent: false);
+                await _signInManager.SignInAsync(user, isPersistent: false); // isPersistent: false는 세션 쿠키를 사용하여 로그인 정보를 저장 , 브라우저가 닫히면 세션이 종료
                 return RedirectToAction("Index", "Movies");
             }
             else
@@ -98,7 +110,7 @@ namespace HuniMVC.Controllers
             //var userId = _context.Users.FirstOrDefault(x => x.UserId == Id);
             //_context.Users.Remove(userId);
             //_context.SaveChanges();
-
+           
             return View();
         }
 
@@ -110,8 +122,10 @@ namespace HuniMVC.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> LogIn([FromForm] string email, string pw)
+        public async Task<IActionResult> LogIn([FromForm] string email, string pw, IdentityUser user)
         {
+
+            var users = await _userManager.GetUserIdAsync(user);
             var IdentityEmail = await _userManager.FindByEmailAsync(email);
             if (IdentityEmail == null)
             {
@@ -124,6 +138,7 @@ namespace HuniMVC.Controllers
                 ViewBag.failtime = true;
                 return View();
             }
+     
 
             await ResetLockoutInfoIfRequired(IdentityEmail); // 로그인 제한 삭제
             //Salt 암호화
@@ -135,6 +150,9 @@ namespace HuniMVC.Controllers
           
             if (result.Succeeded) //로그인 성공
             {
+                ISession session = _services.GetRequiredService<IHttpContextAccessor>()?.HttpContext.Session;
+                //_httpContextAccessor.HttpContext.Session.SetString("UserId", users);
+                session.SetString("UserId", users);
                 return RedirectToAction("Index", "Movies");
             }
             else //로그인 실패
@@ -144,8 +162,18 @@ namespace HuniMVC.Controllers
                 return View();
             }
         }
+        [HttpGet]
+        public IActionResult LogOut()
+        {
 
-       
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LogOut([FromForm] string email, string pw, IdentityUser user)
+        {
+            _httpContextAccessor.HttpContext.Session.Clear();
+            return RedirectToAction("LogIn", "Sign");
+        }
 
         private async Task HandleFailedSignIn(IdentityUser IdentityEmail)
         {
@@ -163,7 +191,6 @@ namespace HuniMVC.Controllers
             {
                 ViewBag.failcountmesaage = failedCount;
                 ViewBag.discorduser = true;
-                _standardJsonResult.AddError("Invalid login attempt");
                 
             }
         }

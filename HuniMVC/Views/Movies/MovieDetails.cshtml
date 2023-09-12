@@ -133,7 +133,7 @@
 
     function CommentListLoad() {
         var messageId = '@messageId'; // Razor 변수를 JavaScript 변수에 할당
-        //$("#divComment").load('@Url.RouteUrl("_CommentList", "Comment")?messageId=' + messageId);
+      
         $("#divComment").load('@Url.Action("_CommentList", "Comment")?messageId=' + messageId); // action(functions, controllers)
     }
 

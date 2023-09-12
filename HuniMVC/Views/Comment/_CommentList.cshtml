@@ -44,21 +44,3 @@
         </tbody>
     </table>
 </div>
-<script>
-    function CommentDelete(messageId, commentId) {
-        if (confirm("삭제 하시겠습니까?")) {
-            var url = '@Href("~/Comment/CommentDelete")';
-            var parameters = new Object();
-            parameters["messageId"] = messageId;
-            parameters["commentId"] = commentId;
-
-            $.post(url, parameters)
-                .done(function (data) {
-                    //alert("삭제 되었습니다.");
-                    CommentListLoad();
-                })
-                .fail(function (data) {
-                    alert("실패 하였습니다. [" + data + "]");
-                });
-        }
-</script>

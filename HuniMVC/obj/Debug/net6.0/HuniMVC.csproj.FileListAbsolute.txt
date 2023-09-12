@@ -290,3 +290,5 @@ D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\refint\H
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.pdb
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.genruntimeconfig.cache
 D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\ref\HuniMVC.dll
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.Properties.Resources.resources
+D:\개인프로젝트\MVCProject\trunk\HuniMVC\HuniMVC\obj\Debug\net6.0\HuniMVC.csproj.GenerateResource.cache
